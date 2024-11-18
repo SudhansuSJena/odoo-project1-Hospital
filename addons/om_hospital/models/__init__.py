@@ -1,0 +1,1 @@
+from . import om_hospital_patient
