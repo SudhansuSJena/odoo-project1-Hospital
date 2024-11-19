@@ -12,6 +12,6 @@
       "views/om_hospital_patient_readonly_views.xml",
       "views/om_hospital_menu.xml"
   ],
-  "application": "True", # Add this to make it appear in apps list
-  "installable": "True" # Add this to make it installable
+  "application": True, # Add this to make it appear in apps list
+  "installable": True # Add this to make it installable
 }
