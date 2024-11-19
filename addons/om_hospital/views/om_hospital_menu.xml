@@ -17,6 +17,13 @@
         parent="om_hospital_frontdesk_menu"
         action="action_om_hospital_patient"
         />
+
+    <menuitem 
+    id="om_hospital_patients_readonly_menu"
+    name="View Patient"
+    parent="om_hospital_frontdesk_menu"
+    action="action_om_hospital_patient_readonly_window"
+    />
 </odoo>
 
 
