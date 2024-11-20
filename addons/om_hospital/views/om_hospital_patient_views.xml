@@ -13,13 +13,16 @@
                         <group>
                             <field name="name"/>
                             <field name="date_of_birth" />
-                        </group>
-                        <group>
                             <field name="gender" />
                         </group>
+                        <group>
+                            <field name="is_child" />
+                            <field name="age" />
+                        </group>
                     </sheet>
+                    <!--chatter section-->
                     <div class="oe_chatter">
-                    <field name="message_follower_ids" groups="basr.group_user" />
+                    <field name="message_follower_ids" groups="base.group_user" />
                     <field name="message_ids" />
                     </div>
                 </form>
@@ -37,6 +40,8 @@
         <field name="name" />
         <field name="date_of_birth" optional="hide" />
         <field name="gender" optional="show" />
+        <field name="is_child" />
+        <field name="age" />
         </tree>
 
         </field>
@@ -54,17 +59,27 @@
     <t t-name="kanban-box">
     <div class="oe_kanban_global_click">
     <div class="oe_kanban_details">
-
+    <!--Display patient name-->
     <div class="oe_kanban_title">
     <field name="name" />
     </div>
 
+    <!--Display patient gender-->
     <div class="oe_kanban_tags">
     <field name="gender" />
+    <field name="is_child" />
+    <field name="age" />
     </div>
-
+    
+    <!--Patient Date of Birth-->
     <div class="oe_kanban_age">
     <field name="date_of_birth" />
+    </div>
+
+    <!--chatter section-->
+    <div class="oe_chatter">
+    <field name="message_follower_ids" groups="base.group_user" />
+    <field name="message_ids" />
     </div>
 
     </div>
@@ -81,7 +96,7 @@
 
 
     <!--WIndow Action-->
-    <record id="action_om_hospital_patient" model = "ir.actions.act_window">
+    <record id="action_om_hospital_patient_window" model = "ir.actions.act_window">
         <field name="name">Patients</field> <!--Action name-->
         <field name="res_model">om_hospital.patient</field> <!--Which model data will be loaded-->
         <field name="view_mode">kanban,tree,form</field>

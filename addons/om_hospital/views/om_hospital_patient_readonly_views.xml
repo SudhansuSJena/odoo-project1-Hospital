@@ -11,10 +11,12 @@
 <group>
 <field name="name" />
 <field name="date_of_birth" />
+<field name="gender" />
 </group>
 
 <group>
-<field name="gender" />
+<field name="is_child" />
+<field name="age" />
 </group>
 
 </sheet>
@@ -34,6 +36,8 @@
 <field name="name" />
 <field name="date_of_birth" optional="hide" />
 <field name="gender" optional="show" />
+<field name="is_child" />
+<field name="age" />
 </tree>
 </field>
 </record>
@@ -55,6 +59,8 @@
 
 <div class="oe_kanban_tags">
 <field name="gender" />
+<field name="is_child" />
+<field name="age" />
 </div>
 
 <div class="oe_kanban_age">

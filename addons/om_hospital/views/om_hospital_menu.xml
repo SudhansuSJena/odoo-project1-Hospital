@@ -1,29 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-    <menuitem
-        id="om_hospital_patient_menu"
-        name="HMS"
-        />
     
+    <!--MAIN MENU: HOSPITAL MENU-->
+    <menuitem
+        id="om_hospital_menu"
+        name="HMS"
+    />
+
+    <!--HOSPITAL MENU ITEM: 1-->
     <menuitem
         id="om_hospital_frontdesk_menu"
         name="Front Desk"
-        parent="om_hospital_patient_menu"/>
+        parent="om_hospital_menu"
+        sequence="10" />
 
+    
+    <!--frontdesk item: 1-->
     <menuitem
         id="om_hospital_patients_menu"
         name="Patient"
         parent="om_hospital_frontdesk_menu"
-        action="action_om_hospital_patient"
+        action="action_om_hospital_patient_window"
         />
-
+    
+    <!--frontdesk item: 2-->
     <menuitem 
-    id="om_hospital_patients_readonly_menu"
-    name="View Patient"
-    parent="om_hospital_frontdesk_menu"
-    action="action_om_hospital_patient_readonly_window"
+        id="om_hospital_patients_readonly_menu"
+        name="View Patient"
+        parent="om_hospital_frontdesk_menu"
+        action="action_om_hospital_patient_readonly_window"
     />
+
+    <!--HOSPITAL MENU ITEM: 2-->
+    <menuitem
+        id="om_hospital_employee_menu"
+        name="Employees"
+        parent="om_hospital_menu"
+        sequence="20" 
+    />
+
+    <!--hospital item: 1-->
+    <menuitem
+        id="om_hospital_doctor_menu"
+        name="Doctors"
+        parent="om_hospital_employee_menu"
+        action="action_om_hospital_doctor_window"
+    />
+
+    <!--hospital item: 2-->
+    <menuitem 
+        id="om_hospital_doctor_readonly_menu"
+        name="View Doctors"
+        parent="om_hospital_employee_menu"
+        action="action_om_hospital_doctor_readonly_window"
+    />
+    
 </odoo>
 
 

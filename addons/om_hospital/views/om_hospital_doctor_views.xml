@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--Custom form view-->
+<record id="view_om_hospital_doctor_form" model = "ir.ui.view">
+    <!--model_name.view_type-->
+    <field name="name">om_hospital.doctor.form</field>
+    <!--model_name-->
+    <field name="model">om_hospital.doctor</field>
+    <field name="arch" type="xml">
+        <form string="Doctor Master">
+            <field name="experience_level" />
+            <sheet>
+                <group>
+                    <field name="name" />
+                    <field name="age" />
+                    <field name="gender" /> 
+                </group>
+
+                <group>
+                    <field name="experience" />
+                    <field name="experience_level" />
+                </group>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" groups="base.group_user" />
+                <field name="message_ids" />
+            </div>
+        </form>
+    </field>
+</record>
+
+
+<!--Custom tree view-->
+<record id="view_om_hospital_doctor_tree" model="ir.ui.view">
+    <field name="name">om_hospital.doctor.tree</field>
+    <field name="model">om_hospital.doctor</field>
+    <field name="arch" type="xml">
+        <tree string="Doctor Master">
+            <field name="name" />
+            <field name="age" />
+            <field name="gender"/>
+            <field name="experience" />
+            <field name="experience_level" /> 
+        </tree>
+    </field>
+</record>
+
+<!--Custom Kanban view-->
+<record id="view_om_hospital_doctor_kanban" model="ir.ui.view">
+    <field name="name">om_hospital.doctor.kanban</field>
+    <field name="model">om_hospital.doctor</field>
+    <field name="arch" type="xml">
+        <kanban string="Doctor Master">
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_global_click">
+                        <div class="oe_kanban_details">
+                            <div class="oe_kanban_title">
+                                <field name="name" />
+                            </div>
+                            <div class="oe_kanban_tags">
+                                <field name="age" />
+                            </div>
+                            <div class="oe_kanban_tags">
+                                <field name="gender" />
+                            </div>
+                            <div class="oe_kanban_tags">
+                                <field name="experience" />
+                            </div>
+                            <div class="oe_kanban_tags">
+                                <field name="experience_level" />
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+
+<!--Window action-->
+<record id="action_om_hospital_doctor_window" model="ir.actions.act_window">
+    <field name="name">Doctors</field>
+    <field name="res_model">om_hospital.doctor</field>
+    <field name="view_mode">kanban,tree,form</field>
+    <field name="view_ids" 
+    eval="[Command.clear(),
+    (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_om_hospital_doctor_kanban')}),
+
+    (0, 0, {'view_mode': 'tree', 'view_id': ref('view_om_hospital_doctor_tree')}),
+
+    (0, 0, {'view_mode': 'form', 'view_id': ref('view_om_hospital_doctor_form')})]" />
+
+    <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+            Create a new Doctor
+        </p>
+    </field>
+</record>
+
+
+</odoo>
