@@ -12,6 +12,12 @@ class OmHospitalPatient(models.Model):
 
     gender = fields.Selection([("male", "Male"), ("female", "Female")], string="Gender", tracking=True)
 
+    doctor_id = fields.Many2one(
+        comodel_name="om_hospital.doctor",
+        string="Assigned Doctor",
+        ondelete="restrict",
+        help="Doctor assigned to patient"
+    )
 
     
     @api.depends('age')

@@ -9,17 +9,16 @@
     <field name="model">om_hospital.doctor</field>
     <field name="arch" type="xml">
         <form string="Doctor Master">
-            <field name="experience_level" />
             <sheet>
                 <group>
-                    <field name="name" />
-                    <field name="age" />
-                    <field name="gender" /> 
+                    <field name="name" string="Name" />
+                    <field name="age" string="Age" />
+                    <field name="gender" string="Gender" /> 
                 </group>
 
                 <group>
-                    <field name="experience" />
-                    <field name="experience_level" />
+                    <field name="experience" string="Experience" />
+                    <field name="experience_level" string="Experience Level" />
                 </group>
             </sheet>
             <div class="oe_chatter">
@@ -37,11 +36,11 @@
     <field name="model">om_hospital.doctor</field>
     <field name="arch" type="xml">
         <tree string="Doctor Master">
-            <field name="name" />
-            <field name="age" />
-            <field name="gender"/>
-            <field name="experience" />
-            <field name="experience_level" /> 
+            <field name="name" string="Name" />
+            <field name="age" string="Age" />
+            <field name="gender" string="Gender"/>
+            <field name="experience" string="Experience" />
+            <field name="experience_level" string="Experience_level" /> 
         </tree>
     </field>
 </record>
@@ -49,7 +48,7 @@
 <!--Custom Kanban view-->
 <record id="view_om_hospital_doctor_readonly_kanban" model="ir.ui.view">
     <field name="name">om_hospital.doctor.readonly.kanban</field>
-    <field name="model">om_hospital.doctor</field>
+    <field name="model">om_hospital.doctor</field> <!--Doctor Model-->
     <field name="arch" type="xml">
         <kanban string="Doctor Master">
             <templates>
@@ -57,19 +56,19 @@
                     <div class="oe_kanban_global_click">
                         <div class="oe_kanban_details">
                             <div class="oe_kanban_title">
-                                <field name="name" />
+                                <field name="name" string="Name" />
                             </div>
                             <div class="oe_kanban_tags">
-                                <field name="age" />
+                                <field name="age" string="Age" />
                             </div>
                             <div class="oe_kanban_tags">
-                                <field name="gender" />
+                                <field name="gender" string="Gender" />
                             </div>
                             <div class="oe_kanban_tags">
-                                <field name="experience" />
+                                <field name="experience" string="Experience" />
                             </div>
                             <div class="oe_kanban_tags">
-                                <field name="experience_level" />
+                                <field name="experience_level" string="Experience_level" />
                             </div>
                         </div>
                     </div>

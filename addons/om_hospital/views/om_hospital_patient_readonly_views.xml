@@ -3,77 +3,86 @@
 
 <!--Custom Form view-->
 <record id="view_om_hospital_patient_readonly_form" model="ir.ui.view">
-<field name="name">om_hospital.patient.readonly.form</field>
-<field name="model">om_hospital.patient</field>
-<field name="arch" type="xml">
-<form string="View Patients" create='0' delete='0' edit='0'>
-<sheet>
-<group>
-<field name="name" />
-<field name="date_of_birth" />
-<field name="gender" />
-</group>
+    <field name="name">om_hospital.patient.readonly.form</field>
+    <field name="model">om_hospital.patient</field>
+    <field name="arch" type="xml">
+        <form string="View Patients" create='0' delete='0' edit='0'>
+            <sheet>
+                <group>
+                    <field name="name" string="Name"/>
+                    <field name="date_of_birth" string="DOB" />
+                    <field name="gender" string="Gender" />
+                </group>
 
-<group>
-<field name="is_child" />
-<field name="age" />
-</group>
+                <group>
+                    <field name="is_child" string="Is Child"/>
+                    <field name="age" string="Age" />
+                </group>
+                <group>
+                    <field name="doctor_id" string="Assigned Doctor" />
+                </group>
 
-</sheet>
+            </sheet>
 
-</form>
-</field>
+        </form>
+    </field>
 
 </record>
 
 
-<!--CUstom tree view-->
+<!--Custom tree view-->
 <record id="view_om_hospital_patient_readonly_tree" model="ir.ui.view">
-<field name="name">om_hospital.patient.readonly.tree</field>
-<field name="model">om_hospital.patient</field>
-<field name="arch" type="xml">
-<tree string="View Patients" create='0' delete='0' edit='0'>
-<field name="name" />
-<field name="date_of_birth" optional="hide" />
-<field name="gender" optional="show" />
-<field name="is_child" />
-<field name="age" />
-</tree>
-</field>
+    <field name="name">om_hospital.patient.readonly.tree</field>
+    <field name="model">om_hospital.patient</field>
+    <field name="arch" type="xml">
+        <tree string="View Patients" create='0' delete='0' edit='0'>
+            <field name="name" string="Name"/>
+            <field name="date_of_birth" string="DOB" optional="hide" />
+            <field name="gender" string="Gender" optional="show" />
+            <field name="is_child" string="Is Child" />
+            <field name="age" string="Age" />
+            <field name="doctor_id" string="Assigned Doctor" />
+        </tree>
+    </field>
 </record>
 
 <!--Custom kanban view-->
 <record id="view_om_hospital_patient_readonly_kanban" model="ir.ui.view">
-<field name="name">om_hospital.patient.readonly.kanban</field>
-<field name="model">om_hospital.patient</field>
-<field name="arch" type="xml">
-<kanban string="View Patients" create='0' delete='0' edit='0'>
-<templates>
-<t t-name="kanban-box">
-<div class="oe_kanban_global_click">
-<div class="oe_kanban_details">
+    <field name="name">om_hospital.patient.readonly.kanban</field>
+    <field name="model">om_hospital.patient</field>
+    <field name="arch" type="xml">
+        <kanban string="View Patients" create='0' delete='0' edit='0'>
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_global_click">
+                        <div class="oe_kanban_details">
 
-<div class="oe_kanban_title">
-<field name="name" />
-</div>
+                            <div class="oe_kanban_title">
+                                <field name="name" string="Name"/>
+                            </div>
+                            <div class="oe_kanban_tags">
+                                <field name="gender" string="Gender"/>
+                            </div>
+                            <div class="oe_kanban_tags">
+                                <field name="is_child" string="Is Child"/>
+                            </div>
+                            <div class="oe_kanban_tags">
+                                <field name="age" string="Age" />
+                            </div>
+                            <div class="oe_kanban_tags">
+                                <field name="doctor_id" string="Assigned Doctor" />
+                            </div>
+                            <div class="oe_kanban_age">
+                                <field name="date_of_birth" string="DOB" />
+                            </div>
+                            
+                        </div>
+                    </div>
+                </t>
+            </templates>
 
-<div class="oe_kanban_tags">
-<field name="gender" />
-<field name="is_child" />
-<field name="age" />
-</div>
-
-<div class="oe_kanban_age">
-<field name="date_of_birth" />
-</div>
-
-</div>
-</div>
-</t>
-</templates>
-
-</kanban>
-</field>
+        </kanban>
+    </field>
 
 </record>
 

@@ -9,7 +9,6 @@
     <field name="model">om_hospital.doctor</field>
     <field name="arch" type="xml">
         <form string="Doctor Master">
-            <field name="experience_level" />
             <sheet>
                 <group>
                     <field name="name" />
@@ -22,10 +21,29 @@
                     <field name="experience_level" />
                 </group>
             </sheet>
+
+            <!--Chatter Section-->
             <div class="oe_chatter">
                 <field name="message_follower_ids" groups="base.group_user" />
                 <field name="message_ids" />
             </div>
+
+            <!-- Footer Section with Buttons -->
+            <footer>
+                <button 
+                    name="action_redirect_to_patient_kanban" 
+                    type="object" 
+                    class="oe_highlight" 
+                    string="Go to Patient Kanban View" 
+                />
+                <button 
+                    name="action_redirect_to_patient_tree" 
+                    type="object" 
+                    class="oe_highlight" 
+                    string="Go to Patient Tree View" 
+                />
+            </footer>
+
         </form>
     </field>
 </record>
@@ -37,6 +55,12 @@
     <field name="model">om_hospital.doctor</field>
     <field name="arch" type="xml">
         <tree string="Doctor Master">
+            <button 
+                name="action_redirect_to_patient_kanban" 
+                type="object" 
+                class="btn btn-primary" 
+                string="Go to Patient Kanban View" 
+            />
             <field name="name" />
             <field name="age" />
             <field name="gender"/>
@@ -53,6 +77,7 @@
     <field name="arch" type="xml">
         <kanban string="Doctor Master">
             <templates>
+
                 <t t-name="kanban-box">
                     <div class="oe_kanban_global_click">
                         <div class="oe_kanban_details">
@@ -70,6 +95,12 @@
                             </div>
                             <div class="oe_kanban_tags">
                                 <field name="experience_level" />
+                            </div>
+                            <div class="oe_kanban_tags">
+                                <button name="action_redirect_to_patient_tree" 
+                                    type="object" 
+                                    string="Go to Patient Tree View" 
+                                    class="btn btn-primary" />
                             </div>
                         </div>
                     </div>

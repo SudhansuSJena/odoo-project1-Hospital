@@ -11,13 +11,16 @@
                 <form string="Patient MASTER">
                     <sheet>
                         <group>
-                            <field name="name"/>
-                            <field name="date_of_birth" />
+                            <field name="name" string="Name"/>
+                            <field name="date_of_birth" string="DOB" />
                             <field name="gender" />
                         </group>
                         <group>
-                            <field name="is_child" />
-                            <field name="age" />
+                            <field name="is_child" string="Is Child" />
+                            <field name="age" string="Age" />
+                        </group>
+                        <group>
+                            <field name="doctor_id" string="Assigned Doctor" />
                         </group>
                     </sheet>
                     <!--chatter section-->
@@ -32,16 +35,19 @@
 
     <!--custom tree view-->
     <record id="view_om_hospital_patient_tree" model="ir.ui.view">
+        <!--View Name in ir.ui.view model-->
         <field name="name">om_hospital.patient.tree</field>
+        <!--Model whose data will be displayed using this view-->
         <field name="model">om_hospital.patient</field>
         <field name="arch" type="xml">
 
         <tree string="Patients">
-        <field name="name" />
-        <field name="date_of_birth" optional="hide" />
-        <field name="gender" optional="show" />
-        <field name="is_child" />
-        <field name="age" />
+            <field name="name" string="Name" />
+            <field name="date_of_birth" string="DOB" optional="hide" />
+            <field name="gender"  string="Gender" optional="show" />
+            <field name="is_child" string="Is Child" />
+            <field name="age" string="Age" />
+            <field name="doctor_id" string="Assigned Doctor" />
         </tree>
 
         </field>
@@ -49,47 +55,53 @@
 
     <!--Custom Kanban view-->
     <record id="view_om_hospital_patient_kanban" model="ir.ui.view">
-    <field name="name">om_hospital.patient.kanban</field>
-    <field name="model">om_hospital.patient</field>
-    <field name="arch" type="xml">
+        <field name="name">om_hospital.patient.kanban</field>
+        <field name="model">om_hospital.patient</field>
+        <field name="arch" type="xml">
 
-    <kanban string="Patients">
-    
-    <templates>
-    <t t-name="kanban-box">
-    <div class="oe_kanban_global_click">
-    <div class="oe_kanban_details">
-    <!--Display patient name-->
-    <div class="oe_kanban_title">
-    <field name="name" />
-    </div>
+            <kanban string="Patients">
+            
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                            <!--Display patient name-->
+                                <div class="oe_kanban_title">
+                                    <field name="name" string="Name" />
+                                </div>
 
-    <!--Display patient gender-->
-    <div class="oe_kanban_tags">
-    <field name="gender" />
-    <field name="is_child" />
-    <field name="age" />
-    </div>
-    
-    <!--Patient Date of Birth-->
-    <div class="oe_kanban_age">
-    <field name="date_of_birth" />
-    </div>
+                                <!--Display patient gender-->
+                                <div class="oe_kanban_tags">
+                                    <field name="gender" string="Gender"/>
+                                </div>
+                                <div class="oe_kanban_tags">
+                                    <field name="is_child" string="Is Child"/>
+                                </div>
+                                <div class="oe_kanban_tags">
+                                    <field name="age" string="Age"/>
+                                </div>
+                                <div class="oe_kanban_tags">
+                                    <field name="doctor_id" string="Assigned Doctor" />
+                                </div>
+                            <!--Patient Date of Birth-->
+                                <div class="oe_kanban_age">
+                                    <field name="date_of_birth" string="DOB"/>
+                                </div>
 
-    <!--chatter section-->
-    <div class="oe_chatter">
-    <field name="message_follower_ids" groups="base.group_user" />
-    <field name="message_ids" />
-    </div>
+                            <!--chatter section-->
+                                <div class="oe_chatter">
+                                    <field name="message_follower_ids" groups="base.group_user" />
+                                    <field name="message_ids" />
+                                </div>
 
-    </div>
-    </div>
-    </t>
+                            </div>
+                        </div>
+                    </t>
 
-    </templates>
-    </kanban>
-    
-    </field>
+                </templates>
+            </kanban>
+        
+        </field>
     </record>
 
 
