@@ -68,3 +68,14 @@ class OmHospitalDoctor(models.Model):
             'target': 'new',
             'views': [(False, 'kanban'), (False, 'form')]
         }
+    
+    def action_open_patient_delete_wizard(self):
+        # Open wizard to delete a patient.
+        # returns action dictionary
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Patient Delete Wizard',
+            'res_model': 'om_hospital.patient.wizard',
+            'view_mode': 'form',
+            'target': 'new', # Opena as a modal dialog 
+        }

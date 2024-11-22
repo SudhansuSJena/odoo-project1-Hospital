@@ -89,7 +89,9 @@
 
 <!--Custom read-only action-->
 <record id="action_om_hospital_patient_readonly_window" model="ir.actions.act_window">
+    <!--ACTION NAME-->
     <field name="name">View Patients</field>
+    <!--RESOURCE MODEL-->
     <field name="res_model">om_hospital.patient</field>
     <field name="view_mode">kanban,tree,form</field>
 

@@ -1,4 +1,5 @@
 from odoo import api, fields, models, exceptions
+from datetime import date
 
 class OmHospitalPatient(models.Model):
     _name = "om_hospital.patient"
@@ -7,8 +8,8 @@ class OmHospitalPatient(models.Model):
 
     name = fields.Char(string="Name", required=True, tracking=True)
     date_of_birth = fields.Date(string="Date of birth", tracking=True)
+    age = fields.Integer(string="Age", required=True, compute='_compute_age', tracking=True)
     is_child = fields.Boolean(string="Is child ?", compute='_compute_is_child', tracking=True)
-    age = fields.Integer(string="Age", required=True, tracking=True)
 
     gender = fields.Selection([("male", "Male"), ("female", "Female")], string="Gender", tracking=True)
 
@@ -18,6 +19,17 @@ class OmHospitalPatient(models.Model):
         ondelete="restrict",
         help="Doctor assigned to patient"
     )
+
+    @api.depends('date_of_birth')
+    def _compute_age(self):
+        today = date.today()
+        for patient in self:
+            if patient.date_of_birth:
+                dob = patient.date_of_birth
+                delta = today.year - dob.year
+                patient.age = delta
+            else:
+                patient.age = 0
 
     
     @api.depends('age')

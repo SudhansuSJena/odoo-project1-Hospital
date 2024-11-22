@@ -55,7 +55,9 @@
 
     <!--Custom Kanban view-->
     <record id="view_om_hospital_patient_kanban" model="ir.ui.view">
+        <!--VIEW NAME-->
         <field name="name">om_hospital.patient.kanban</field>
+        <!--RESOURCE MODEL-->
         <field name="model">om_hospital.patient</field>
         <field name="arch" type="xml">
 
@@ -107,7 +109,7 @@
 
 
 
-    <!--WIndow Action-->
+    <!--WIndow Action: This window action opens view of om_hospital.patient model-->
     <record id="action_om_hospital_patient_window" model = "ir.actions.act_window">
         <field name="name">Patients</field> <!--Action name-->
         <field name="res_model">om_hospital.patient</field> <!--Which model data will be loaded-->

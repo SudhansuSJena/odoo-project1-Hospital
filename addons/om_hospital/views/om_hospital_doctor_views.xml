@@ -9,6 +9,26 @@
     <field name="model">om_hospital.doctor</field>
     <field name="arch" type="xml">
         <form string="Doctor Master">
+
+                <header>
+                    <button 
+                        name="action_redirect_to_patient_kanban" 
+                        type="object" 
+                        class="oe_highlight" 
+                        string="Go to Patient Kanban View" 
+                    />
+
+                    <button 
+                        name="action_redirect_to_patient_tree" 
+                        type="object" 
+                        class="oe_highlight" 
+                        string="Go to Patient Tree View" 
+                    />
+
+                    <button string="Delete Patient"                           name="action_open_patient_delete_wizard"
+                    type="object" class="oe_highlight" />
+                </header>
+
             <sheet>
                 <group>
                     <field name="name" />
@@ -20,6 +40,7 @@
                     <field name="experience" />
                     <field name="experience_level" />
                 </group>
+
             </sheet>
 
             <!--Chatter Section-->
@@ -28,21 +49,8 @@
                 <field name="message_ids" />
             </div>
 
-            <!-- Footer Section with Buttons -->
-            <footer>
-                <button 
-                    name="action_redirect_to_patient_kanban" 
-                    type="object" 
-                    class="oe_highlight" 
-                    string="Go to Patient Kanban View" 
-                />
-                <button 
-                    name="action_redirect_to_patient_tree" 
-                    type="object" 
-                    class="oe_highlight" 
-                    string="Go to Patient Tree View" 
-                />
-            </footer>
+            <!-- header Section with Buttons -->
+            
 
         </form>
     </field>
@@ -56,11 +64,19 @@
     <field name="arch" type="xml">
         <tree string="Doctor Master">
             <button 
-                name="action_redirect_to_patient_kanban" 
-                type="object" 
-                class="btn btn-primary" 
                 string="Go to Patient Kanban View" 
+                name="action_redirect_to_patient_kanban" 
+                class="oe_highlight" 
+                type="object" 
             />
+
+            <button 
+                string="Delete Patient" 
+                name="action_open_patient_delete_wizard" 
+                type="object" 
+                class="oe_highlight"
+            />
+
             <field name="name" />
             <field name="age" />
             <field name="gender"/>
@@ -97,10 +113,20 @@
                                 <field name="experience_level" />
                             </div>
                             <div class="oe_kanban_tags">
-                                <button name="action_redirect_to_patient_tree" 
+                                <button 
+                                    name="action_redirect_to_patient_tree" 
                                     type="object" 
                                     string="Go to Patient Tree View" 
                                     class="btn btn-primary" />
+                            </div>
+                            <div>
+                                <br/>
+                            </div>
+                            <div class="oe_kanban_tags">
+                                <button 
+                                    string="Delete Patient"                           name="action_open_patient_delete_wizard"
+                                    type="object" 
+                                    class="oe_highlight" />
                             </div>
                         </div>
                     </div>
