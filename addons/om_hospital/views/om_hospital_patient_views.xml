@@ -10,18 +10,36 @@
             <field name="arch" type="xml">
                 <form string="Patient MASTER">
                     <sheet>
-                        <group>
+                        <group id="group1">
                             <field name="name" string="Name"/>
                             <field name="date_of_birth" string="DOB" />
                             <field name="gender" />
                         </group>
-                        <group>
+                        <group name="group2">
                             <field name="is_child" string="Is Child" />
                             <field name="age" string="Age" />
                         </group>
-                        <group>
+                        <group name="group3">
                             <field name="doctor_id" string="Assigned Doctor" />
                         </group>
+
+                        <notebook id="notebook">
+                                <!--page-1-->
+                                <page name="Patient Admit Status" id="page1_admit">
+                                <group name="notebook_group1">
+                                    <field name="admitted" string="Is Admited?" />
+                                </group>
+                                </page>
+
+                                <!--page-2-->
+                                <page name="Address Details" id="page2_address">
+                                <group>
+                                    <field name="country" string="Country" />
+                                </group>
+                                </page>
+
+                        </notebook>
+
                     </sheet>
                     <!--chatter section-->
                     <div class="oe_chatter">

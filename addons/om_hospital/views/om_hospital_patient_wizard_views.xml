@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <odoo>
-
     <record id="view_patient_delete_wizard_form" model="ir.ui.view">
         <field name="name">om_hospital.patient.wizard.form</field>
         <field name="model">om_hospital.patient.wizard</field>
@@ -19,12 +18,14 @@
         </field>
     </record>
 
-
-    <record id="action_om_hospital_patient_wizard_window" model="ir.actions.act_window">
+<!--
+<record id="action_om_hospital_patient_wizard_window" model="ir.actions.act_window">
         <field name="name">Patients Delete</field>
         <field name="res_model">om_hospital.patient.wizard</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
         <field name="view_ids" eval="[Command.clear(), (0, 0, {'view_mode': 'form', 'view_id': ref('view_patient_delete_wizard_form')})]" />
     </record>
+    -->
+    
 </odoo>

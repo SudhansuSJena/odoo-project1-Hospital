@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hospital_extend_form" model="ir.ui.view">
+        <!--ModuleName.InheritedModuleName.inherit-->
+        <field name="name">hospital_extend.om_hospital.inherit</field>
+        <field name="model">om_hospital.patient</field>
+
+        <!--Name of the model whom it is inheriting-->
+        <field name="inherit_id" ref="om_hospital.view_om_hospital_patient_form" />
+        <field name="arch" type="xml">
+
+            <!--Extend the form view by adding fields-->
+            <field name="doctor_id" position="after">
+                <group>
+                    <field name="created_on" />
+                    <field name="created_by" />
+                </group>
+                <group>
+                    <field name="relationship_status" />
+                </group>
+            </field>
+
+            <xpath expr="//notebook//page[@name='Patient Admit Status']//field[@name='admitted']" position="after">
+                <field name="guardian" string="Guardian" />
+            </xpath>
+
+            <xpath expr="//sheet//notebook[@id='notebook']//page[2]//group//field[@name='country']" position="before" >
+            <field name="address" string="Address" />
+            <field name="city" string="City" />
+            <field name="state" string="State" />
+            </xpath>
+
+            <xpath expr="//notebook[@id='notebook']//page[@id='page2_address']" position="after">
+            <page name="Occupation Details" id="page2_address" string="Occupation">
+                <group>
+                <field name="occupation" />
+                <field name="company" />
+                </group>
+                
+            </page>
+            </xpath>
+        </field>
+    
+    </record>
+</odoo>

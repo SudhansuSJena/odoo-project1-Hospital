@@ -17,8 +17,13 @@ class OmHospitalPatient(models.Model):
         comodel_name="om_hospital.doctor",
         string="Assigned Doctor",
         ondelete="restrict",
-        help="Doctor assigned to patient"
+        help="Doctor assigned to patient",
+        tracking=True,
     )
+
+    admitted = fields.Boolean(string="Is Admitted ?", default=False, tracking=True)
+    
+    country = fields.Char(string="Country", tracking=True)
 
     @api.depends('date_of_birth')
     def _compute_age(self):
